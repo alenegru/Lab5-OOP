@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 class Movie {
@@ -21,6 +22,7 @@ private:
     int year;
     int numberOfLikes;
     string trailer;
+    int id = rand() % 100;
 public:
     //constructors
     Movie();
@@ -32,6 +34,7 @@ public:
     int get_year() { return year; }
     int get_number_of_likes() { return numberOfLikes; }
     string get_trailer() { return trailer; }
+    int get_id() { return id; }
     
     //setters
     void set_title(string t) { title = t; }
