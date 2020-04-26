@@ -118,6 +118,11 @@ void Repository::open_link(string link_) {
 
 void Repository::read_file(vector <Movie>& v, string file) {
     
+
+    //NU MERGE INCA 
+/*
+
+
     ifstream read_my_file;
    // string my_file = file;
     read_my_file.open(file.c_str());
@@ -138,7 +143,7 @@ void Repository::read_file(vector <Movie>& v, string file) {
             movies.push_back(movie);
         }
         else break;*/
-        read_my_file >> vec;
+    /*    read_my_file >> vec;
         title = vec;
         read_my_file >> vec;
         genre = vec;
@@ -211,6 +216,9 @@ void Repository::read_file(vector <Movie>& v, string file) {
         v.erase(v.end() - 1);
     print_movie_vector(v);
     myReadFile.close();*/
+
+
+    
 }
 
 void Repository::write_file(vector <Movie> v, string file) {

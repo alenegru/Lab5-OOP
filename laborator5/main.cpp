@@ -8,11 +8,25 @@
 
 #include "console.hpp"
 #include "controller.hpp"
+#include "movie.hpp"
 #include "repository.hpp"
 #include <iostream>
+#include <vector>
 
 int main() {
     Repository repo;
+    vector<Movie> movies;
+    Movie m("supermanVSbatman", "action", 2017, 12, "https://youtu.be/0WWzgGyAH6Y");
+    repo.add_movie("supermanVSbatman", "action", "2017", "https://youtu.be/0WWzgGyAH6Y");
+  
+    repo.update_movie(41, "supermanVSbatman", "action", "2017", "90", "https://youtu.be/0WWzgGyAH6Y");
+    
+    repo.print_movie_vector(repo.show_movies("action"));
+    repo.open_link(m.get_trailer());
+    repo.write_file(repo.get_movies(), "movies_out.txt");
+    repo.remove_movie(67);
+    repo.print_movie_vector(repo.show_movies("action"));
+
 //    Controller ctrl;
 //    Console cons;
 //    cons.main();

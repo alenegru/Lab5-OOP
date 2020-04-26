@@ -26,15 +26,21 @@ public:
     
     //returns the movies
     vector <Movie> get_movies() { return movies; }
-    
-    //adds a movie in repo
-    bool add_movie(string title_, string genre_, string year_, string trailer_);
 
+    //sets movies
+    void set_movies(vector <Movie> m) { movies = m; }
+
+    //prints a movie vector
+    void print_movie_vector(vector <Movie> movies_);
+    
+    //adds a movie in repos
+    bool add_movie(string title_, string genre_, string year_, string trailer_);
+    
     //removes movie from repo
     bool remove_movie(int id_);
 
     //updates a movie's data
-    bool update_movie(int id_, string title_, string genre_, string year_, string trailer_);
+    bool update_movie(int id_, string title_, string genre_, string year_, string numberOfLikes, string trailer_);
 
     //shows movies based on genre
     vector <Movie> show_movies(string genre_);
