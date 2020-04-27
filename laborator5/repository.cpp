@@ -7,6 +7,7 @@
 //
 
 #include "repository.hpp"
+#include "validate.hpp"
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
@@ -17,14 +18,6 @@ Repository::Repository() {}
 
 Repository::~Repository() {}
 
-bool isNumber(string s)
-{
-    for (int i = 0; i < s.length(); i++)
-        if (isdigit(s[i]) == false)
-            return false;
-
-    return true;
-}
 
 void Repository::print_movie_vector(vector <Movie> movies_)
 {
@@ -36,11 +29,15 @@ void Repository::print_movie_vector(vector <Movie> movies_)
 
 bool Repository::add_movie(string title_, string genre_, string year_, string trailer_) {
 
+    validate v;
     int year = 0;
-    if (!isNumber(year_)) return false;
+    if (!v.is_digit(year_)) return false;
     else  year = stoi(year_);
 
-    Movie new_movie(title_ , genre_, year,0, trailer_);
+    if (!v.is_string(title_) || !v.is_string(genre_) || !v.is_string(trailer_))
+        return false;
+
+    Movie new_movie(title_ , genre_, year, 0, trailer_);
 
     movies.push_back(new_movie);
 
@@ -63,8 +60,12 @@ bool Repository::remove_movie(int id_) {
 
 bool Repository::update_movie(int id_, string title_, string genre_, string year_, string numberOfLikes_, string trailer_) {
 
+    validate v;
     int _year = 0, _numberOfLikes = 0;
-    if (!isNumber(year_) || !isNumber(numberOfLikes_)) return false;
+    if (!v.is_digit(year_) || !v.is_digit(numberOfLikes_)) 
+        return false;
+    if (!v.is_string(title_) || !v.is_string(genre_) || !v.is_string(trailer_))
+        return false;
     else 
     {
         _year = stoi(year_);
