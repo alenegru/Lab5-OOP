@@ -10,5 +10,29 @@
 #define console_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include "controller.hpp"
+
+using namespace std;
+
+class Console
+{
+	private:
+
+		Controller controller;
+	
+	public:
+
+		Console();
+		~Console();
+
+		void menu();
+
+		void admin_menu();
+
+		void user_menu();
+
+
+};
 
 #endif /* console_hpp */

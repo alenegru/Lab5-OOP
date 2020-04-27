@@ -70,6 +70,7 @@ void Controller::remove_movie_from_repo()
 	{
 		id = stoi(id_test);
 		repo.remove_movie(id);
+		cout << "successfully removed" << endl;
 	}
 	else
 	{
@@ -106,6 +107,7 @@ void Controller::update_movie_from_repo()
 	{
 		id = stoi(id_test);
 		repo.update_movie(id,title,genre,year,numberOfLikes,trailer);
+		cout << "successfully updated" << endl;
 	}
 	else
 	{

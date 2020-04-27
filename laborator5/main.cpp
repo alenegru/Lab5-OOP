@@ -32,8 +32,8 @@ int main() {
 
     repo.print_movie_vector(repo.get_movies());
 
-//    Controller ctrl;
-//    Console cons;
-//    cons.main();
+    Controller ctrl;
+    Console cons;
+    cons.menu();
     return 0;
 }
