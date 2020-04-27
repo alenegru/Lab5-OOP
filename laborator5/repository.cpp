@@ -116,108 +116,18 @@ void Repository::open_link(string link_) {
     system(string("cmd /c start " + link_).c_str());
 }
 
-void Repository::read_file(vector <Movie>& v, string file) {
+void Repository::create_movies() {
     
-
-    //NU MERGE INCA 
-/*
-
-
-    ifstream read_my_file;
-   // string my_file = file;
-    read_my_file.open(file.c_str());
-
-    string title, genre, trailer;
-    string year, numberOfLikes;
-    char vec[100];
-   
-    while (!read_my_file.eof())
-    {
-        /*read_my_file >> title;
-        cout << title << " ";
-        read_my_file >> genre >> year >> numberOfLikes >> trailer;
-        cout << genre << " ";
-        if (title != "" || genre != "" || year != "" || numberOfLikes != "" || trailer != "")
-        {
-            Movie movie(title, genre, stoi(year), stoi(numberOfLikes), trailer);
-            movies.push_back(movie);
-        }
-        else break;*/
-    /*    read_my_file >> vec;
-        title = vec;
-        read_my_file >> vec;
-        genre = vec;
-        read_my_file >> vec;
-        year = stoi(vec);
-        read_my_file >> vec;
-        numberOfLikes = stoi(vec);
-        read_my_file >> vec;
-        trailer = vec;
-        Movie movie(title, genre, stoi(year), stoi(numberOfLikes), trailer);
-        movies.push_back(movie);
-    }
-    movies = v;
-    cout << " ddd" << movies.size();
-    print_movie_vector(v);
-    read_my_file.close();
-        /*  ifstream myReadFile;
-    string filename = file;
-    myReadFile.open(filename.c_str());
-
-    string title;
-    string genre;
-    int year;
-    int number_likes;
-    string trailer;
-   
-
-    string temp;
-
-    string::size_type sz;
-
-    while (!myReadFile.eof())
-    {
-        Movie f;
-
-        
-
-        myReadFile >> title;
-        if (title != "")
-            f.set_title(title);
-
-        myReadFile >> genre;
-        if (genre != "")
-            f.set_genre(genre);
-
-        myReadFile >> temp;
-        if (temp != "")
-        {
-            number_likes = stoi(temp, &sz);
-            f.set_numberOfLikes(number_likes);
-        }
-
-        myReadFile >> temp;
-        if (temp != "")
-        {
-            year = stoi(temp, &sz);
-            f.set_year(year);
-        }
-
-        myReadFile >> trailer;
-        if (trailer != "")
-            f.set_trailer(trailer);
-
-        if (title != "")
-            v.push_back(f);
-
-    }
-
-    if (v.size() > 0)
-        v.erase(v.end() - 1);
-    print_movie_vector(v);
-    myReadFile.close();*/
-
-
+    add_movie("JurrasicWorld", "action", "2015", "https://youtu.be/RFinNxS5KN4");
+    add_movie("Thor:Ragnarok ", "action", "2017", "https://youtu.be/ue80QwXMRHg");
+    add_movie("Avengers:Endgame ", "adventure", "2019", "https://youtu.be/TcMBFSGVi1c");
+    add_movie("Psycho ", "horror", "1960", "https://youtu.be/Wz719b9QUqY");
+    add_movie("Us ", "horror", "2019", "https://youtu.be/1tzFRIQfwXg");
+    add_movie("Titanic", "romantic", "1997", "https://youtu.be/2e-eXJ6HgkQ");
+    add_movie("Superbad", "comedy", "2007", "https://youtu.be/4eaZ_48ZYog");
+    add_movie("TheNotebook", "romantic", "2004", "https://youtu.be/yDJIcYE32NU");
+    add_movie("Borat", "comedy", "2006", "https://youtu.be/vlnUa_dNsRQ");
+    add_movie("Neighbors", "comedy", "2014", "https://youtu.be/kL5c2szf3E4");
     
 }
 

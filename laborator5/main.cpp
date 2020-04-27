@@ -15,17 +15,22 @@
 
 int main() {
     Repository repo;
-    vector<Movie> movies;
+    vector<Movie> movies,mo;
     Movie m("supermanVSbatman", "action", 2017, 12, "https://youtu.be/0WWzgGyAH6Y");
     repo.add_movie("supermanVSbatman", "action", "2017", "https://youtu.be/0WWzgGyAH6Y");
   
     repo.update_movie(41, "supermanVSbatman", "action", "2017", "90", "https://youtu.be/0WWzgGyAH6Y");
     
     repo.print_movie_vector(repo.show_movies("action"));
-    repo.open_link(m.get_trailer());
+    //repo.open_link(m.get_trailer());
     repo.write_file(repo.get_movies(), "movies_out.txt");
     repo.remove_movie(67);
     repo.print_movie_vector(repo.show_movies("action"));
+
+    repo.create_movies();
+    repo.print_movie_vector(repo.show_movies("horror"));
+
+    repo.print_movie_vector(repo.get_movies());
 
 //    Controller ctrl;
 //    Console cons;

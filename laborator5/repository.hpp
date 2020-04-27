@@ -49,7 +49,7 @@ public:
     void open_link(string link_);
 
     //reading file
-    void read_file(vector <Movie>& v, string file);
+    void create_movies();
     
     //writing in file
     void write_file(vector <Movie> v, string file);
