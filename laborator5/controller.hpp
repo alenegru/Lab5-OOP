@@ -23,6 +23,9 @@ class Controller
 
 	public:
 
+		Controller();
+		~Controller();
+
 		//for ADMIN
 		void add_movie_to_repo();
 
