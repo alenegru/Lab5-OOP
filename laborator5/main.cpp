@@ -9,11 +9,18 @@
 #include "console.hpp"
 #include "controller.hpp"
 #include "movie.hpp"
+#include "Tests.hpp"
 #include "repository.hpp"
 #include <iostream>
 #include <vector>
 
 int main() {
+
+    Test_Movie();
+    Test_Repository();
+    Test_Validate();
+
+    /*
     Repository repo;
     vector<Movie> movies,mo;
     Movie m("supermanVSbatman", "action", 2017, 12, "https://youtu.be/0WWzgGyAH6Y");
@@ -31,7 +38,7 @@ int main() {
     repo.print_movie_vector(repo.show_movies("horror"));
 
     repo.print_movie_vector(repo.get_movies());
-
+    */
     Controller ctrl;
     Console cons;
     cons.menu();

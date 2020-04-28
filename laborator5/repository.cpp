@@ -108,6 +108,8 @@ vector <Movie> Repository:: show_movies(string genre_) {
         else get_movies();
     }
     return movies_genre;
+
+
 }
 
 void Repository::open_link(string link_) {

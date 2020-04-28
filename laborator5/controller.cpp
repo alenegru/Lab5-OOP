@@ -81,6 +81,8 @@ void Controller::remove_movie_from_repo()
 void Controller::update_movie_from_repo()
 {
 	cout << endl << "Update movie from List: " << endl << endl;
+	repo.print_movie_vector(repo.get_movies());
+	cout << endl;
 
 	validate v;
 	int id;
@@ -107,7 +109,8 @@ void Controller::update_movie_from_repo()
 	{
 		id = stoi(id_test);
 		repo.update_movie(id,title,genre,year,numberOfLikes,trailer);
-		cout << "successfully updated" << endl;
+		repo.print_movie_vector(repo.get_movies());
+		cout << endl << "successfully updated" << endl;
 	}
 	else
 	{
