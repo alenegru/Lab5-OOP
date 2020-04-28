@@ -14,18 +14,23 @@
 #include "movie.hpp"
 using namespace std;
 
-class WatchList {
+class Watchlist {
 private:
-    vector <Movie> watchlist;
+    vector <int> watchlist;
 public:
     //getter
-    vector<Movie>& get_watchlist() { return watchlist; }
+    vector<int>& get_watchlist() { return watchlist; }
+    
+    bool isEmpty();
+    //checks if movie exists in watchlist
+    bool find_movie_by_id(int id_);
     
     //removes movie from watchlist
     bool remove_movie_from_watchlist(int id_);
     
     //adds movie to watchlist
-    bool add_movie_to_watchlist(Movie movieToAdd);
+    bool add_movie_to_watchlist(int id_);
+    
 };
 
 #endif /* watchlist_hpp */
