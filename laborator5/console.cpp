@@ -37,7 +37,7 @@ void Console::menu()
 	{
 		if (type == "1")
 		{
-			//USER
+            user_menu();
 		}
 		else if (type == "2")
 		{
@@ -93,7 +93,23 @@ void Console::admin_menu()
 	}
 }
 
-void Console::user_menu()
-{
+void Console::user_menu() {
+    cout << "\nUSER MENU\n\n1 - Show movies by genre\n2 - Delete movie from watchlist\n3 - See watchlist\nOption 0 - Exit\n";
 
+    string option = " ";
+
+    cout << "\nYour option: ";
+    cin >> option;
+
+    if (option == "1")
+        controller.user_show_movies_by_genre();
+    else if (option == "2")
+        controller.user_delete_movie_from_watchlist();
+    else if (option == "3")
+        controller.user_show_watchlist();
+    else if (option == "0")
+        return;
+    else
+        cout << "\nInvalid option!\n";
+    user_menu();
 }
