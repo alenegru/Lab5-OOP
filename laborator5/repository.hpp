@@ -53,6 +53,10 @@ public:
     
     //writing in file
     void write_file(vector <Movie> v, string file);
+    
+    Movie get_movie_by_id(int id_);
+    
+    bool find_movie_by_id(int id_);
 };
 
 #endif /* repository_hpp */

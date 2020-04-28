@@ -146,3 +146,18 @@ void Repository::write_file(vector <Movie> v, string file) {
     write_my_file.close();
 
 }
+
+Movie Repository::get_movie_by_id(int id_) {
+    Movie empty_film;
+    for (int i = 0; i < movies.size(); i++)
+        if (movies[i].get_id() == id_)
+            return movies[i];
+    return empty_film;
+}
+
+bool Repository::find_movie_by_id(int id_) {
+    for (int i = 0; i < movies.size(); i++)
+        if (movies[i].get_id() == id_)
+            return true;
+    return false;
+}
