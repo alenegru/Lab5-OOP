@@ -18,6 +18,7 @@ int main() {
 
     Test_Movie();
     Test_Repository();
+    Test_Validate();
 
     /*
     Repository repo;

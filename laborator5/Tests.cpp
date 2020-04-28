@@ -2,6 +2,7 @@
 #include "controller.hpp"
 #include "movie.hpp"
 #include "repository.hpp"
+#include "validate.hpp"
 #include "Tests.hpp"
 #include <iostream>
 #include <vector>
@@ -63,3 +64,17 @@ void Test_Repository()
 	cout << "Finished Repository Test\n";
 }
 
+void Test_Validate()
+{
+	validate v;
+	assert(v.is_digit("123") == true);
+	assert(v.is_digit("0") == true);
+	assert(v.is_digit("123g") == false);
+	assert(v.is_digit("string") == false);
+
+	assert(v.is_string("123") == true);
+	assert(v.is_string("123g") == true);
+	assert(v.is_string("string") == true);
+
+	cout << "Finished Validate Test\n";
+}

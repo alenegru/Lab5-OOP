@@ -13,10 +13,7 @@ class validate
 	public:
 		bool is_string(string str)
 		{
-			for (int i = 0; i < str.length(); i++)
-				if (isdigit(str[i]) == false)
-					return true;
-			return false;
+			return true;
 		};
 		bool is_digit(string str)
 		{
