@@ -56,7 +56,7 @@ void Console::menu()
 
 void Console::admin_menu()
 {
-	string choice = "";
+	string choice = "none";
 
 	cout << endl << "ADMIN MENU" << endl << endl;
 	cout << "for 'ADD MOVIE' press 1\n" << "for 'REMOVE MOVIE' press 2\n" << "for 'UPDATE MOVIE' press 3\n" << "for 'EXIT ADMIN MENU' press 0\n";
@@ -64,7 +64,7 @@ void Console::admin_menu()
 	cout << endl << "your choice is : ";
 	cin >> choice;
 
-	while (choice != "0")
+	while (choice >" ")
 	{
 		if (choice == "1")
 		{
