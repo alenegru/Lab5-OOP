@@ -21,6 +21,7 @@ Controller::~Controller()
 Controller::Controller()
 {
 	repo.create_movies();
+    wlist.get_watchlist();
 	//for watchlist remaining
 }
 
@@ -117,5 +118,92 @@ void Controller::update_movie_from_repo()
 		cout << "ERROR - wrong data" << endl << "hint: id must be integer" << endl;
 	}
 
+}
+
+void Controller::user_show_movies_by_genre() {
+    cout << "\nShow movies by genre:";
+    cout << "\nType genre: ";
+
+    string genre;
+    cin >> genre;
+
+    vector <Movie> results = repo.show_movies(genre);
+
+    cout << "\nFilms found:\n";
+    
+    for (int i = 0; i < results.size(); i++) {
+        cout << "ID: " << results[i].get_id() << " Title: " << results[i].get_title() << " Genre: " << results[i].get_genre() <<
+            " Year: " << results[i].get_year() << " Likes: " << results[i].get_number_of_likes() << "\n";
+        repo.open_link(results[i].get_trailer());
+
+        string answer;
+
+        cout << "\nAdd to watchlist?\nY - yes, N - no\nAnswer: ";
+        cin >> answer;
+
+        if (answer == "y" or answer == "Y") {
+            if (wlist.add_movie_to_watchlist(results[i].get_id()))
+                cout << "\nFilm successfully added to your watchlist!\n";
+            else
+                cout << "\nSomething went wrong.";
+        }
+        
+        if (i != results.size() - 1) {
+            cout << "Watch another trailer?\nY - yes, N - no\nAnswer: ";
+            string answer2;
+            cin >> answer2;
+
+            if (answer2 == "n" or answer2 == "N")
+                break;
+        }
+    }
+}
+
+void Controller::user_delete_movie_from_watchlist() {
+    cout << "\nRemove from watchlist\n";
+    cout << "Your watchlist:\n";
+    user_show_watchlist();
+
+    int id;
+    cout << "\nEnter ID: ";
+    cin >> id;
+
+    while (cin.fail()) {
+        cout << "Error ID must be integer: " << endl;
+        cin.clear();
+        cin.ignore(256, '\n');
+        cin >> id;
+    }
+
+    if (wlist.remove_movie_from_watchlist(id)) {
+        cout << "\nFilm removed from watchlist successfully!\n";
+        
+        string like;
+
+        cout << "Like?\nY - yes, N - no\nAnswer: ";
+        cin >> like;
+
+        if (like == "Y" or like == "y") {
+            for (int i = 0; i < repo.get_movies().size(); i++)
+                if (repo.get_movies()[i].get_id() == id) {
+                    repo.get_movies()[i].set_numberOfLikes(repo.get_movies()[i].get_number_of_likes() + 1);
+                    cout << "\nLiked!";
+                }
+        }
+    } else cout << "\nSomething went wrong.\n";
+}
+
+void Controller::user_show_watchlist()
+{
+    cout << "\nWatchlist:";
+    vector <Movie> movies;
+    for (int i = 0; i < wlist.get_watchlist().size(); i++) {
+        Movie movie = repo.get_movie_by_id(wlist.get_watchlist()[i]);
+        movies.push_back(movie);
+    }
+    
+    for (int i = 0; i < movies.size(); i++)
+        cout << "ID: " << movies[i].get_id() <<"Title: " << movies[i].get_title() << " Genre: " << movies[i].get_genre() <<
+            " Year: " << movies[i].get_year() << " Likes: " << movies[i].get_number_of_likes() << "\n";
 }
 

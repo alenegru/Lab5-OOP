@@ -19,7 +19,7 @@ class Controller
 {
 	private:
 		Repository repo;
-		//WatchList wlist;
+		Watchlist wlist;
 
 	public:
 
@@ -34,12 +34,14 @@ class Controller
 		void update_movie_from_repo();
 
 		//for USER
-
-
-
+    //Show movies based on genre
+    void user_show_movies_by_genre();
+    
+    //Deletes movie from watchlist
+    void user_delete_movie_from_watchlist();
+    
+    //Shows watchlist
+    void user_show_watchlist();
 };
-
-
-
 
 #endif /* controller_hpp */
