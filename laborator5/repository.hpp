@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include "movie.hpp"
+#include "Exception.hpp"
 using namespace std;
 
 class Repository {

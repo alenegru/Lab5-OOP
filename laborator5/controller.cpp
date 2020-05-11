@@ -91,32 +91,45 @@ void Controller::update_movie_from_repo()
 	cout << "id of movie to update: ";
 	cin >> id_test;
 
-	string title, genre, year, numberOfLikes, trailer; 
-
-	cout << "give new data: " << endl; 
-
-	cout << "title: ";
-	cin >> title;
-	cout << endl << "genre: ";
-	cin >> genre;
-	cout << endl << "year: ";
-	cin >> year;
-	cout << endl << "numberOfLikes: ";
-	cin >> numberOfLikes;
-	cout << endl << "trailer: ";
-	cin >> trailer;
-
-	if (v.is_digit(id_test) && v.is_string(title) && v.is_string(genre) && v.is_digit(year) && v.is_digit(numberOfLikes) && v.is_string(trailer))
+	if (v.is_digit(id_test))
 	{
 		id = stoi(id_test);
-		repo.update_movie(id,title,genre,year,numberOfLikes,trailer);
-		repo.print_movie_vector(repo.get_movies());
-		cout << endl << "successfully updated" << endl;
+		if (!repo.find_movie_by_id(id))
+		{
+			cout << "Movie ID does not exist" << endl;
+		}
+		else
+		{
+			string title, genre, year, numberOfLikes, trailer;
+
+			cout << "give new data: " << endl;
+
+			cout << "title: ";
+			cin >> title;
+			cout << endl << "genre: ";
+			cin >> genre;
+			cout << endl << "year: ";
+			cin >> year;
+			cout << endl << "numberOfLikes: ";
+			cin >> numberOfLikes;
+			cout << endl << "trailer: ";
+			cin >> trailer;
+
+			if (v.is_digit(id_test) && v.is_string(title) && v.is_string(genre) && v.is_digit(year) && v.is_digit(numberOfLikes) && v.is_string(trailer))
+			{
+				id = stoi(id_test);
+				repo.update_movie(id, title, genre, year, numberOfLikes, trailer);
+				repo.print_movie_vector(repo.get_movies());
+				cout << endl << "successfully updated" << endl;
+			}
+		}
+	
 	}
-	else
-	{
+	else {
 		cout << "ERROR - wrong data" << endl << "hint: id must be integer" << endl;
 	}
+
+	
 
 }
 

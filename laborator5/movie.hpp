@@ -25,7 +25,10 @@ private:
     int id = rand() % 100;
 public:
     //constructors
-    Movie();
+    Movie()
+    {
+        id = -1;
+    };
     Movie(string title, string genre, int year, int numberOfLikes, string trailer);
     
     //getters
