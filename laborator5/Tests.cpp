@@ -34,6 +34,8 @@ void Test_Repository()
 	Movie movie2("movie2", "gen2", 2002, 1, "trailer2");
 	Repository repo;
 
+	cout << movie.get_id() << " " << movie2.get_id() << endl;
+
 	//add movies
 	assert(repo.add_movie("movie", "gen", "1999", "trailer"));
 	assert(repo.add_movie("movie2", "gen2", "2002", "trailer2"));
@@ -59,6 +61,10 @@ void Test_Repository()
 	assert(repo.remove_movie(repo.get_movies()[0].get_id()));
 	assert(repo.get_movies().size() == 0);
 
+
+
+	//vector<int> v = { movie.get_id(), movie2.get_id() };
+	//repo.watchlist_html("movies_out.txt", v);
 
 
 	cout << "Finished Repository Test\n";

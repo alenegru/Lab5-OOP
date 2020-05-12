@@ -9,6 +9,8 @@
 #include "watchlist.hpp"
 #include "repository.hpp"
 #include "validate.hpp"
+#include<iostream>
+#include<fstream>
 using namespace std;
 
 bool Watchlist::remove_movie_from_watchlist(int id_) {
@@ -45,3 +47,4 @@ bool Watchlist::find_movie_by_id(int id_) {
             return true;
     return false;
 }
+

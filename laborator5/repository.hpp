@@ -58,6 +58,9 @@ public:
     Movie get_movie_by_id(int id_);
     
     bool find_movie_by_id(int id_);
+
+    void watchlist_html(string file, vector <int> watchlist);
+
 };
 
 #endif /* repository_hpp */

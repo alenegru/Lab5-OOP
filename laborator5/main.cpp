@@ -12,7 +12,12 @@
 #include "Tests.hpp"
 #include "repository.hpp"
 #include <iostream>
+#include <fstream>
+#include <windows.h>
+#include <shellapi.h>
 #include <vector>
+
+//using namespace std;
 
 int main() {
 
@@ -39,6 +44,14 @@ int main() {
 
     repo.print_movie_vector(repo.get_movies());
     */
+
+  
+    //
+
+    //string s = "file:///C:/Users/laura/Laburi%20OOP/Lab5-OOP/laborator5/view_html.html";
+
+    //ShellExecute(0, 0, L , 0, 0, SW_SHOW);
+
     Controller ctrl;
     Console cons;
     cons.menu();
