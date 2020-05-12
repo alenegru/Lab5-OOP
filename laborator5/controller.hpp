@@ -42,6 +42,14 @@ class Controller
     
     //Shows watchlist
     void user_show_watchlist();
+
+	//if user wants to save data to html file
+	void create_and_open_html();
+
+	//for csv
+
+
+
 };
 
 #endif /* controller_hpp */

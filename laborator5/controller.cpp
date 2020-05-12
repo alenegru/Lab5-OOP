@@ -157,7 +157,6 @@ void Controller::user_show_movies_by_genre() {
         if (answer == "y" or answer == "Y") {
 			if (wlist.add_movie_to_watchlist(results[i].get_id()))
 			{
-				//repo.watchlist_html("movies_out.txt", wlist.get_watchlist());
 				cout << "\nFilm successfully added to your watchlist!\n";
 			}
             else
@@ -217,13 +216,17 @@ void Controller::user_show_watchlist()
         Movie movie = repo.get_movie_by_id(wlist.get_watchlist()[i]);
         movies.push_back(movie);
     }
-	repo.watchlist_html("view_html.html", wlist.get_watchlist());
 
-	
-	repo.open_link("view_html.html");
 
     for (int i = 0; i < movies.size(); i++)
         cout << "ID: " << movies[i].get_id() <<"Title: " << movies[i].get_title() << " Genre: " << movies[i].get_genre() <<
             " Year: " << movies[i].get_year() << " Likes: " << movies[i].get_number_of_likes() << "\n";
+}
+
+void Controller::create_and_open_html()
+{
+	// create and open html
+	repo.watchlist_html("view_html.html", wlist.get_watchlist());
+	repo.open_link("view_html.html");
 }
 

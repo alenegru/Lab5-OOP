@@ -31,7 +31,7 @@ public:
     //adds movie to watchlist
     bool add_movie_to_watchlist(int id_);
 
-    void watchlist_html(string file);
+   
     
 };
 

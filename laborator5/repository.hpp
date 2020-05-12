@@ -59,6 +59,8 @@ public:
     
     bool find_movie_by_id(int id_);
 
+
+    //creates html file by using a vector of movie ids
     void watchlist_html(string file, vector <int> watchlist);
 
 };

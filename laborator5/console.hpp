@@ -30,7 +30,11 @@ class Console
 
 		void admin_menu();
 
-		void user_menu();
+		void user_menu(int choice);
+
+
+		//for user, if watchlist should be saved in html or csv file
+		int csv_html_menu();
 
 
 };

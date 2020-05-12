@@ -181,17 +181,6 @@ bool Repository::find_movie_by_id(int id_) {
     return false;
 }
 
-void dublicate_file(string str1, string str2)
-{
-    ofstream fout;
-    fout.open(str2, ofstream::out | ofstream::trunc);
-    string s;
-    ifstream file(str1);
-    while (getline(file, s))
-    {
-        fout << s << endl;
-    }
-}
 
 void Repository::watchlist_html(string file, vector<int> wlist)
 {

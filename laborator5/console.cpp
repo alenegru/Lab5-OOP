@@ -37,7 +37,7 @@ void Console::menu()
 	{
 		if (type == "1")
 		{
-            user_menu();
+            user_menu(csv_html_menu());
 		}
 		else if (type == "2")
 		{
@@ -93,7 +93,7 @@ void Console::admin_menu()
 	}
 }
 
-void Console::user_menu() {
+void Console::user_menu(int choice) {
     cout << "\nUSER MENU\n\n1 - Show movies by genre\n2 - Delete movie from watchlist\n3 - See watchlist\nOption 0 - Exit\n";
 
     string option = " ";
@@ -105,11 +105,47 @@ void Console::user_menu() {
         controller.user_show_movies_by_genre();
     else if (option == "2")
         controller.user_delete_movie_from_watchlist();
-    else if (option == "3")
-        controller.user_show_watchlist();
+
+	else if (option == "3")
+	{
+		controller.user_show_watchlist();
+		if (choice == 2)
+		{
+			//OPEN HTML
+			controller.create_and_open_html();
+		}
+		if (choice == 1)
+		{
+			//OPEN csv
+		}
+	}
+       
     else if (option == "0")
         return;
     else
         cout << "\nInvalid option!\n";
-    user_menu();
+    user_menu(csv_html_menu());
+}
+
+int Console::csv_html_menu()
+{
+	cout << "\nsave to CSV FILE or HTML FILE?\n" << "for CSV file press 1\nfor HTML file press 2\n";
+	string option = " ";
+
+	cout << "\nYour option: ";
+	cin >> option;
+
+	//CSV
+	//if (option == "1")
+		//return 1
+		
+	//else
+	if (option == "2") //HTML
+		return 2;
+	else
+		cout << "\nInvalid option!\n";
+
+	csv_html_menu();
+
+
 }
