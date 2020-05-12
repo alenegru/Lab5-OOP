@@ -62,11 +62,6 @@ void Test_Repository()
 	assert(repo.get_movies().size() == 0);
 
 
-
-	//vector<int> v = { movie.get_id(), movie2.get_id() };
-	//repo.watchlist_html("movies_out.txt", v);
-
-
 	cout << "Finished Repository Test\n";
 }
 

@@ -146,6 +146,7 @@ int Console::csv_html_menu()
 		cout << "\nInvalid option!\n";
 
 	csv_html_menu();
+	return 0;
 
 
 }
