@@ -26,7 +26,7 @@ public:
     ~Repository();
     
     //returns the movies
-    vector <Movie> get_movies() { return movies; }
+    vector <Movie>& get_movies() { return movies; }
 
     //sets movies
     void set_movies(vector <Movie> m) { movies = m; }
@@ -41,7 +41,7 @@ public:
     bool remove_movie(int id_);
 
     //updates a movie's data
-    bool update_movie(int id_, string title_, string genre_, string year_, string numberOfLikes, string trailer_);
+    bool update_movie(int id_, string title_, string genre_, string year_, string numberOfLikes_, string trailer_);
 
     //shows movies based on genre
     vector <Movie> show_movies(string genre_);
@@ -50,7 +50,7 @@ public:
     void open_link(string link_);
 
     //reading file
-    void create_movies();
+    void read_file(vector <Movie>& v, string file);
     
     //writing in file
     void write_file(vector <Movie> v, string file);
@@ -59,9 +59,11 @@ public:
     
     bool find_movie_by_id(int id_);
 
-
     //creates html file by using a vector of movie ids
     void watchlist_html(string file, vector <int> watchlist);
+    
+    //creates csv file by using a vector of movie ids
+    void watchlist_csv(string file, vector <int> watchlist);
 
 };
 

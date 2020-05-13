@@ -9,12 +9,25 @@
 #include "movie.hpp"
 #include <string>
 
-Movie::Movie(string t, string g, int y, int nrOfLikes, string tr) {
-    title = t;
-    genre = g;
-    year = y;
-    numberOfLikes = nrOfLikes;
-    trailer = tr;
+Movie::Movie() {
+    
+}
+
+Movie::Movie(string title_, string genre_, int year_, int numberOfLikes_, string trailer_) {
+    title = title_;
+    genre = genre_;
+    year = year_;
+    numberOfLikes = numberOfLikes_;
+    trailer = trailer_;
+}
+
+Movie::Movie(int id_, string title_, string genre_, int year_, int numberOfLikes_, string trailer_) {
+    id = id_;
+    title = title_;
+    genre = genre_;
+    year = year_;
+    numberOfLikes = numberOfLikes_;
+    trailer = trailer_;
 }
 
 Movie::~Movie() {}
