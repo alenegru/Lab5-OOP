@@ -9,6 +9,12 @@
 #ifndef htmlBuilder_hpp
 #define htmlBuilder_hpp
 
+#include "WatchlistBuilder.hpp"
 #include <stdio.h>
+
+class HTMLBuilder : public WatchlistBuilder {
+public:
+    void watchlist_builder(vector <int> watchlist, Repository &repo);
+};
 
 #endif /* htmlBuilder_hpp */
