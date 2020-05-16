@@ -64,6 +64,8 @@ public:
     
     //creates csv file by using a vector of movie ids
     void watchlist_csv(string file, vector <int> watchlist);
+    
+    void create_movies();
 
 };
 
