@@ -10,5 +10,11 @@
 #define CsvBuilder_hpp
 
 #include <stdio.h>
+#include "WatchlistBuilder.hpp"
+
+class CsvBuilder : public WatchlistBuilder {
+public:
+    void build_watchlist(vector <int> watchlist, Repository &repo);
+};
 
 #endif /* CsvBuilder_hpp */
