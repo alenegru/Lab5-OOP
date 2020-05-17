@@ -21,9 +21,9 @@
 
 int main() {
 
-    Test_Movie();
-    Test_Repository();
-    Test_Validate();
+//    Test_Movie();
+//    Test_Repository();
+//    Test_Validate();
 
     /*
     Repository repo;
@@ -46,7 +46,7 @@ int main() {
     */
 
 
-    Controller ctrl;
+    //Controller ctrl;
     Console cons;
     cons.menu();
     return 0;

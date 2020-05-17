@@ -6,6 +6,7 @@
 //  Copyright © 2020 Alexandra Negru. All rights reserved.
 //
 
+#include "movie.hpp"
 #include "repository.hpp"
 #include "validate.hpp"
 #include <stdlib.h>
@@ -135,7 +136,7 @@ void Repository::open_link(string link_) {
 }
 
 void Repository::create_movies() {
-    
+
     add_movie("JurrasicWorld", "action", "2015", "https://youtu.be/RFinNxS5KN4");
     add_movie("Thor:Ragnarok ", "action", "2017", "https://youtu.be/ue80QwXMRHg");
     add_movie("Avengers:Endgame ", "adventure", "2019", "https://youtu.be/TcMBFSGVi1c");
@@ -146,23 +147,84 @@ void Repository::create_movies() {
     add_movie("TheNotebook", "romantic", "2004", "https://youtu.be/yDJIcYE32NU");
     add_movie("Borat", "comedy", "2006", "https://youtu.be/vlnUa_dNsRQ");
     add_movie("Neighbors", "comedy", "2014", "https://youtu.be/kL5c2szf3E4");
-    
+
 }
 
-void Repository::write_file(vector <Movie> v, string file) {
-    
-    ofstream write_my_file;
-    write_my_file.open(file, ofstream::out | ofstream::trunc);
+void Repository::read_file(vector <Movie>& v, string file) {
+    ifstream myReadFile;
+    string filename = file;
+    myReadFile.open(filename.c_str());
+
+    string title;
+    string genre;
+    int year;
+    int number_likes;
+    string trailer;
+    int id;
+
+    string temp;
+
+    string::size_type sz;
+
+    while (!myReadFile.eof()) {
+        char text[1000];
+        myReadFile.getline(text,1000);
+        
+        string line = text;
+
+        if (line == "")
+            break;
+        
+        vector <int> indexes;
+        vector <string> elements;
+        string word;
+
+        for (int i = 0; i < line.length(); i++)
+            if (line[i] == '|')
+                indexes.push_back(i);
+   
+        int j = 0;
+        while (j < indexes.size() - 1) {
+            for (int i = indexes[j] + 1; i < indexes[j + 1]; i++)
+                word += line[i];
+            elements.push_back(word);
+            word = "";
+            j++;
+        }
+        id = stoi(elements[0], &sz);
+        number_likes = stoi(elements[4], &sz);
+        year = stoi(elements[3], &sz);
+        Movie f(id, elements[1], elements[2], year, number_likes, elements[5]);
+        v.push_back(f);
+    }
+    myReadFile.close();
+}
+
+void Repository::write_file(vector<Movie> v, string filename) {
+    ofstream fin;
+    fin.open(filename, ofstream::out | ofstream::trunc);
 
     for (int i = 0; i < v.size(); i++)
-    {
-        write_my_file << v[i].get_id() << " " << v[i].get_title() << " " << v[i].get_genre() << " " << v[i].get_year() << " " << v[i].get_number_of_likes() <<
-            " " << v[i].get_trailer() << '\n';
+        fin << "|" << v[i].get_id() << "|" << v[i].get_title() << "|" << v[i].get_genre() << "|" << v[i].get_number_of_likes() << "|" << v[i].get_year() <<
+        "|" << v[i].get_trailer() << "|\n";
 
-    }
-    write_my_file.close();
-
+    fin.close();
 }
+
+//void Repository::write_file(vector <Movie> v, string file) {
+//
+//    ofstream write_my_file;
+//    write_my_file.open(file, ofstream::out | ofstream::trunc);
+//
+//    for (int i = 0; i < v.size(); i++)
+//    {
+//        write_my_file << v[i].get_id() << " " << v[i].get_title() << " " << v[i].get_genre() << " " << v[i].get_year() << " " << v[i].get_number_of_likes() <<
+//            " " << v[i].get_trailer() << '\n';
+//
+//    }
+//    write_my_file.close();
+//
+//}
 
 Movie Repository::get_movie_by_id(int id_) {
     Movie empty_film;

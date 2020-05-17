@@ -25,11 +25,12 @@ private:
     int id = rand() % 100;
 public:
     //constructors
-    Movie()
-    {
-        id = -1;
-    };
-    Movie(string title, string genre, int year, int numberOfLikes, string trailer);
+    Movie();
+//    {
+//        id = -1;
+//    };
+    Movie(int id_, string title_, string genre_, int year_, int numberOfLikes_, string trailer_);
+    Movie(string title_, string genre_, int year_, int numberOfLikes_, string trailer_);
     
     //getters
     string get_title() { return title; }
@@ -42,6 +43,7 @@ public:
     //setters
     void set_title(string t) { title = t; }
     void set_genre(string g) { genre = g;}
+    void set_id(int i) { id = i; }
     void set_year(int y) { year = y; }
     void set_numberOfLikes(int nrlikes) { numberOfLikes = nrlikes; }
     void set_trailer(string tr) { trailer = tr; }

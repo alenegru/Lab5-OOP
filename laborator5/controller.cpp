@@ -15,12 +15,12 @@ using namespace std;
 
 Controller::~Controller()
 {
-
 }
+    
 
 Controller::Controller()
 {
-	repo.create_movies();
+    repo.read_file(repo.get_movies(), "movies");
     wlist.get_watchlist();
 	//for watchlist remaining
 }

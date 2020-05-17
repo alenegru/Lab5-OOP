@@ -1,11 +1,10 @@
-JurrassicWorld action 2015 0 https://youtu.be/RFinNxS5KN4
-Thor:Ragnarok action 2017 0 https://youtu.be/ue80QwXMRHg
-Titanic romantic 1997 0 https://youtu.be/2e-eXJ6HgkQ
-TheNotebook romantic 2004 0 https://youtu.be/yDJIcYE32NU
-Borat comedy 2006 0 https://youtu.be/vlnUa_dNsRQ
-Neighbors comedy 2014 0 https://youtu.be/kL5c2szf3E4
-Superbad comedy 2007 0 https://youtu.be/4eaZ_48ZYog
-Us horror 2019 0 https://youtu.be/1tzFRIQfwXg
-Psycho horror 1960 0 https://youtu.be/Wz719b9QUqY
-Avengers:Endgame adventure 2019 0 https://youtu.be/TcMBFSGVi1c
-
+|1|Jurrassic World|action|2015|0|https://youtu.be/RFinNxS5KN4|
+|2|Thor:Ragnarok|action|2017|0|https://youtu.be/ue80QwXMRHg|
+|3|Titanic|romantic|1997|0|https://youtu.be/2e-eXJ6HgkQ|
+|4|The Notebook|romantic|2004|0|https://youtu.be/yDJIcYE32NU|
+|5|Borat|comedy|2006|0|https://youtu.be/vlnUa_dNsRQ|
+|6|Neighbors|comedy|2014|0|https://youtu.be/kL5c2szf3E4|
+|7|Superbad|comedy|2007|0|https://youtu.be/4eaZ_48ZYog|
+|8|Us|horror|2019|0|https://youtu.be/1tzFRIQfwXg|
+|9|Psycho|horror|1960|0|https://youtu.be/Wz719b9QUqY|
+|10|Avengers:Endgame|adventure|2019|0|https://youtu.be/TcMBFSGVi1c|
