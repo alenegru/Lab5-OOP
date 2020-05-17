@@ -12,14 +12,17 @@
 #include <stdio.h>
 #include "repository.hpp"
 #include "watchlist.hpp"
+#include <unordered_map>
+#include "WatchlistBuilder.hpp"
 
 using namespace std;
 
 class Controller
 {
-	private:
-		Repository repo;
-		Watchlist wlist;
+private:
+    Repository repo;
+    Watchlist wlist;
+    unordered_map <string, unique_ptr<WatchlistBuilder>> builderMap;
 
 	public:
 
@@ -42,13 +45,9 @@ class Controller
     
     //Shows watchlist
     void user_show_watchlist();
-
-	//if user wants to save data to html file
-	void create_and_open_html();
-
-	//for csv
-
-
+    
+    //Lets the user choose a file to export watchlist data to
+    void user_export();
 
 };
 

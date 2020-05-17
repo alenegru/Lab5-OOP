@@ -10,19 +10,25 @@
 #include <iostream>
 #include <string>
 #include "validate.hpp"
+#include "htmlBuilder.hpp"
+#include "CsvBuilder.hpp"
 
 using namespace std;
 
-Controller::~Controller()
-{
-}
-    
-
 Controller::Controller()
 {
-    repo.read_file(repo.get_movies(), "movies");
+    repo.read_file(repo.get_movies(), "movies_in.txt");
+    //repo.create_movies();
     wlist.get_watchlist();
-	//for watchlist remaining
+    builderMap.insert(make_pair("html", new HTMLBuilder));
+    builderMap.insert(make_pair("csv", new CsvBuilder));
+}
+
+Controller::~Controller()
+{
+    repo.write_file(repo.get_movies(), "movies_in.txt");
+    builderMap["html"]->build_watchlist(wlist.get_watchlist(), repo);
+    builderMap["csv"]->build_watchlist(wlist.get_watchlist(), repo);
 }
 
 void Controller::add_movie_to_repo()
@@ -223,10 +229,16 @@ void Controller::user_show_watchlist()
             " Year: " << movies[i].get_year() << " Likes: " << movies[i].get_number_of_likes() << "\n";
 }
 
-void Controller::create_and_open_html()
-{
-	// create and open html
-	repo.watchlist_html("view_html.html", wlist.get_watchlist());
-	repo.open_link("view_html.html");
-}
+void Controller::user_export() {
+    cout << "\n\nGive export type(ex. html, csv): ";
 
+    string option;
+    cin >> option;
+
+    if (builderMap.find(option) == builderMap.end())
+        cout << "\nExport option not available!\n";
+    else {
+        builderMap[option]->build_watchlist(wlist.get_watchlist(), repo);
+        repo.open_link("watchlist." + option);
+    }
+}
