@@ -26,17 +26,14 @@ class Console
 		Console();
 		~Console();
 
+        //main menu
 		void menu();
 
+        //menu for admin side
 		void admin_menu();
 
-		void user_menu(int choice);
-
-
-		//for user, if watchlist should be saved in html or csv file
-		int csv_html_menu();
-
-
+        //menu for client side
+		void user_menu();
 };
 
 #endif /* console_hpp */
