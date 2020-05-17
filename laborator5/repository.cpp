@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include "Exception.hpp"
 using namespace std;
 
 Repository::Repository() {}
@@ -211,27 +212,12 @@ void Repository::write_file(vector<Movie> v, string filename) {
     fin.close();
 }
 
-//void Repository::write_file(vector <Movie> v, string file) {
-//
-//    ofstream write_my_file;
-//    write_my_file.open(file, ofstream::out | ofstream::trunc);
-//
-//    for (int i = 0; i < v.size(); i++)
-//    {
-//        write_my_file << v[i].get_id() << " " << v[i].get_title() << " " << v[i].get_genre() << " " << v[i].get_year() << " " << v[i].get_number_of_likes() <<
-//            " " << v[i].get_trailer() << '\n';
-//
-//    }
-//    write_my_file.close();
-//
-//}
-
 Movie Repository::get_movie_by_id(int id_) {
     Movie empty_film;
     for (int i = 0; i < movies.size(); i++)
         if (movies[i].get_id() == id_)
             return movies[i];
-   // throw Exception("No movie with this id");
+    throw Exception("No movie with this id");
     return empty_film;
 }
 
@@ -239,28 +225,6 @@ bool Repository::find_movie_by_id(int id_) {
     for (int i = 0; i < movies.size(); i++)
         if (movies[i].get_id() == id_)
             return true;
-   // throw Exception("No movie with this id");
+    throw Exception("No movie with this id");
     return false;
-}
-
-
-void Repository::watchlist_html(string file, vector<int> wlist)
-{
-    ofstream fout;
-    fout.open(file, ofstream::out | ofstream::trunc);
-
-    fout << "<!DOCTYPE html>\n<html>\n<head>\n<title>Watchliste</title>\n</head>\n<body>\n<table border =";
-    fout << "'1'";
-    fout << "> \n<tr>\n<td>Titel</td>\n<td>Genre</td>\n<td>Jahr</td>\n<td>Likes</td>\n<td>Trailer link </td>\n";
-
-    for (int i = 0; i < wlist.size(); i++)
-    {
-        Movie m = get_movie_by_id(wlist[i]);
-        fout << "</tr>\n<tr>\n<td>" << m.get_title() << "</td>\n<td>" << m.get_genre() << "</td>\n<td>";
-        fout << m.get_year()<<"</td>\n<td>"<<m.get_number_of_likes()<<"</td>\n<td><a href = '"<<m.get_trailer()<<"'>Link</a></td>\n";
-    }
-
-    fout << "</tr>\n</table>\n</body>\n</html>";
-
-    fout.close();
 }

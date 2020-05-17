@@ -57,12 +57,6 @@ public:
     Movie get_movie_by_id(int id_);
     
     bool find_movie_by_id(int id_);
-
-    //creates html file by using a vector of movie ids
-    void watchlist_html(string file, vector <int> watchlist);
-    
-    //creates csv file by using a vector of movie ids
-    void watchlist_csv(string file, vector <int> watchlist);
     
     void create_movies();
 
