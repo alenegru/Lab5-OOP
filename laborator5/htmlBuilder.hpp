@@ -14,7 +14,7 @@
 
 class HTMLBuilder : public WatchlistBuilder {
 public:
-    void watchlist_builder(vector <int> watchlist, Repository &repo);
+    void build_watchlist(vector <int> watchlist, Repository &repo);
 };
 
 #endif /* htmlBuilder_hpp */
